@@ -7,25 +7,25 @@ img.addEventListener('click', () => {
     const input = document.querySelector('.screen');
     input.innerText = input.innerText.slice(0, -1)
 })
+document.querySelector('.screen').innerHTML = 0
+
 for (var i = 0; i < keys.length; i++) {
     keys[i].onclick = function(e) {
         var input = document.querySelector('.screen');
-
         var inputVal = input.innerHTML;
         var btnVal = this.innerHTML;
-        console.dir(this.innerHTML);
-        console.dir(img);
-        console.log(inputVal.nodeName);
 
 
         if (btnVal == '%') {
-            input.innerText = input.innerText / 100;
+            input.innerHTML = input.innerHTML / 100;
 
         }
 
         if (btnVal == 'C') {
-            input.innerHTML = '';
+            input.innerHTML = '0';
             decimalAdded = false;
+        } else if (input.innerHTML === '0') {
+            input.innerHTML = e.target.innerHTML;
         } else if (btnVal == '=') {
             var equation = inputVal;
             var lastChar = equation[equation.length - 1];
